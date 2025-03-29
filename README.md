@@ -1,6 +1,38 @@
-# GenAI Analytics API
+# Query Simulation Engine
 
 A lightweight backend service that simulates natural language query processing for data analytics. This service interprets English language queries and translates them into structured query operations, returning relevant data from the system.
+
+## Live Demo
+
+The API is deployed and accessible at:
+[https://query-simulation-engine.onrender.com](https://query-simulation-engine.onrender.com)
+
+### Deployment Notes
+- **Note:** The first request after a period of inactivity may take 10-30 seconds to respond as the server needs to restart. Subsequent requests will be processed at normal speed.
+
+## Postman Collection
+
+To test the API, you can use the provided Postman collection:
+
+1. Download the collection: [Query-Simulation-Engine.postman_collection.json](./Query-Simulation-Engine.postman_collection.json)
+2. Open **Postman** and go to "Collections"
+3. Click on **Import** and select the downloaded file
+4. The collection includes ready-to-use requests for all endpoints:
+   - Process Query
+   - Explain Query
+   - Validate Query
+5. All requests are pre-configured with the correct API key header
+
+## Authentication
+
+All API endpoints are protected by API key authentication. You need to include the API key in your requests:
+
+**Header:**
+```
+x-api-key: 5ygy9bi3rgjgcgr
+```
+
+Requests without a valid API key will receive a 401 Unauthorized or 403 Forbidden response.
 
 ## Features
 
@@ -10,53 +42,6 @@ A lightweight backend service that simulates natural language query processing f
 - Query validation endpoint
 - API key authentication
 - Mock database with sample users, products, and orders
-
-## Tech Stack
-
-- Node.js
-- Express
-- Compromise.js (for NLP processing)
-
-## Setup Instructions
-
-### Prerequisites
-
-- Node.js (v14+)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/yourusername/genai-analytics-api.git
-   cd genai-analytics-api
-   ```
-
-2. Install dependencies
-   ```bash
-   npm install
-   ```
-
-3. Start the development server
-   ```bash
-   npm run dev
-   ```
-
-4. For production
-   ```bash
-   npm start
-   ```
-
-## Authentication
-
-All API endpoints are protected by API key authentication. You need to include the API key in your requests:
-
-**Header:**
-```
-x-api-key: genai-analytics-api-key
-```
-
-Requests without a valid API key will receive a 401 Unauthorized or 403 Forbidden response.
 
 ## API Documentation
 
@@ -69,13 +54,13 @@ Processes a natural language query and returns matching data from the mock datab
 **Request Body:**
 ```json
 {
-  "query": "find products with price less than 600"
+  "query": "your natural language query here"
 }
 ```
 
 **Required Headers:**
 ```
-x-api-key: genai-analytics-api-key
+x-api-key: 5ygy9bi3rgjgcgr
 ```
 
 **Response:**
@@ -83,8 +68,8 @@ x-api-key: genai-analytics-api-key
 {
   "success": true,
   "query": {
-    "original": "find products with price less than 600",
-    "translated": "SELECT * FROM products WHERE price < 600"
+    "original": "your natural language query here",
+    "translated": "SELECT * FROM users"
   },
   "result": [
     // Array of matching records from the database
@@ -99,13 +84,13 @@ Analyzes a natural language query and provides an explanation of how it would be
 **Request Body:**
 ```json
 {
-  "query": "show all users"
+  "query": "your natural language query here"
 }
 ```
 
 **Required Headers:**
 ```
-x-api-key: genai-analytics-api-key
+x-api-key: 5ygy9bi3rgjgcgr
 ```
 
 **Response:**
@@ -113,7 +98,7 @@ x-api-key: genai-analytics-api-key
 {
   "success": true,
   "query": {
-    "original": "show all users",
+    "original": "your natural language query here",
     "translated": "SELECT * FROM users"
   },
   "explanation": "This query will retrieve all records from the users table.",
@@ -130,13 +115,13 @@ Checks if a query is feasible to execute without actually running it.
 **Request Body:**
 ```json
 {
-  "query": "search xyz from abc"
+  "query": "your natural language query here"
 }
 ```
 
 **Required Headers:**
 ```
-x-api-key: genai-analytics-api-key
+x-api-key: 5ygy9bi3rgjgcgr
 ```
 
 **Response:**
@@ -233,19 +218,41 @@ Fields: id, name, category, price, stock
 ### Orders
 Fields: id, user_id, product_id, quantity, order_date
 
-## Deployment
+## Tech Stack
 
-The API can be deployed to various platforms including:
+- Node.js
+- Express
+- Compromise.js (for NLP processing)
 
-- Render
-- Heroku
-- Railway
+## Setup Instructions (Local Development)
 
-Deployment instructions will vary based on the chosen platform.
+### Prerequisites
 
-## Testing
+- Node.js (v14+)
+- npm or yarn
 
-A Postman collection will be provided separately for testing all API endpoints with various query examples.
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/query-simulation-engine.git
+   cd query-simulation-engine
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+3. Start the development server
+   ```bash
+   npm run dev
+   ```
+
+4. For production
+   ```bash
+   npm start
+   ```
 
 ## License
 
@@ -253,4 +260,4 @@ A Postman collection will be provided separately for testing all API endpoints w
 
 ---
 
-Project created as part of the GenAI Analytics challenge. 
+Query Simulation Engine: A natural language to structured query translator. 
