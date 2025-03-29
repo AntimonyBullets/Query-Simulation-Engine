@@ -214,7 +214,7 @@ The API handles various error cases:
 
 ## Data Structure
 
-The system uses a mock database with three tables:
+The system uses a mock database (in-memory) with three tables:
 
 ### Users
 Fields: id, name, email, age, join_date
