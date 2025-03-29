@@ -8,6 +8,7 @@ A lightweight backend service that simulates natural language query processing f
 - Support for various query types (select, filter, aggregation)
 - Query explanation functionality
 - Query validation endpoint
+- API key authentication
 - Mock database with sample users, products, and orders
 
 ## Tech Stack
@@ -46,11 +47,22 @@ A lightweight backend service that simulates natural language query processing f
    npm start
    ```
 
+## Authentication
+
+All API endpoints are protected by API key authentication. You need to include the API key in your requests:
+
+**Header:**
+```
+x-api-key: genai-analytics-api-key
+```
+
+Requests without a valid API key will receive a 401 Unauthorized or 403 Forbidden response.
+
 ## API Documentation
 
 The API provides three main endpoints for interacting with the natural language query system:
 
-### 1. Process Query (`POST /api/v1/query`)
+### 1. Process Query (`POST /api/query`)
 
 Processes a natural language query and returns matching data from the mock database.
 
@@ -59,6 +71,11 @@ Processes a natural language query and returns matching data from the mock datab
 {
   "query": "your natural language query here"
 }
+```
+
+**Required Headers:**
+```
+x-api-key: genai-analytics-api-key
 ```
 
 **Response:**
@@ -75,7 +92,7 @@ Processes a natural language query and returns matching data from the mock datab
 }
 ```
 
-### 2. Explain Query (`POST /api/v1/explain`)
+### 2. Explain Query (`POST /api/explain`)
 
 Analyzes a natural language query and provides an explanation of how it would be processed without executing it.
 
@@ -84,6 +101,11 @@ Analyzes a natural language query and provides an explanation of how it would be
 {
   "query": "your natural language query here"
 }
+```
+
+**Required Headers:**
+```
+x-api-key: genai-analytics-api-key
 ```
 
 **Response:**
@@ -101,7 +123,7 @@ Analyzes a natural language query and provides an explanation of how it would be
 }
 ```
 
-### 3. Validate Query (`POST /api/v1/validate`)
+### 3. Validate Query (`POST /api/validate`)
 
 Checks if a query is feasible to execute without actually running it.
 
@@ -112,9 +134,15 @@ Checks if a query is feasible to execute without actually running it.
 }
 ```
 
+**Required Headers:**
+```
+x-api-key: genai-analytics-api-key
+```
+
 **Response:**
 ```json
 {
+  "success": true,
   "feasible": true,
   "reason": null
 }
@@ -124,6 +152,7 @@ If the query is not feasible, the response will include a reason:
 
 ```json
 {
+  "success": true,
   "feasible": false,
   "reason": "Query could not be translated"
 }
@@ -185,10 +214,11 @@ Calculates and returns the sum of all product prices.
 
 The API handles various error cases:
 
-- Missing query parameter
-- Unsupported query types
-- Reference to non-existent tables or fields
-- Queries without recognizable intent
+- Missing or invalid API key (401/403)
+- Missing query parameter (400)
+- Unsupported query types (400)
+- Reference to non-existent tables or fields (400)
+- Queries without recognizable intent (400)
 
 ## Data Structure
 
