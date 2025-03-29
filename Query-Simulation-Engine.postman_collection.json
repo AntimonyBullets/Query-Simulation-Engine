@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "faef7b57-37a3-4840-946b-bce94545c024",
+		"name": "Query-Simulation-Engine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27199425"
+	},
+	"item": [
+		{
+			"name": "query",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "5ygy9bi3rgjgcgr",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"find products with price less than 600\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://query-simulation-engine.onrender.com/api/query",
+					"protocol": "https",
+					"host": [
+						"query-simulation-engine",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "explain",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "5ygy9bi3rgjgcgr",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"show the total price of products\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://query-simulation-engine.onrender.com/api/explain",
+					"protocol": "https",
+					"host": [
+						"query-simulation-engine",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"explain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "5ygy9bi3rgjgcgr",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"list xyz of abc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://query-simulation-engine.onrender.com/api/validate",
+					"protocol": "https",
+					"host": [
+						"query-simulation-engine",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
