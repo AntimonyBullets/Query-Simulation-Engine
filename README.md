@@ -180,7 +180,8 @@ Returns products with a price less than 100.
 
 ```
 show products with price equal to 800
-```Returns products with a price equal to 800.
+```
+Returns products with a price equal to 800.
 
 ### Category Filters
 
@@ -241,7 +242,7 @@ Fields: id, user_id, product_id, quantity, order_date
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/AntimonyBullets/Query-Simulation-Engine.git
+   git clone https://github.com/yourusername/query-simulation-engine.git
    cd query-simulation-engine
    ```
 
@@ -259,7 +260,7 @@ Fields: id, user_id, product_id, quantity, order_date
    ```bash
    npm start
    ```
-   
+
 ---
 
 Query Simulation Engine: A natural language to structured query translator. 
