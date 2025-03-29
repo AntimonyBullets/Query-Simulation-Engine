@@ -2,13 +2,20 @@
 
 A lightweight backend service that simulates natural language query processing for data analytics. This service interprets English language queries and translates them into structured query operations, returning relevant data from the system.
 
-## Live Demo
+## API Service
 
-The API is deployed and accessible at:
+The API is deployed with the base URL:
 [https://query-simulation-engine.onrender.com](https://query-simulation-engine.onrender.com)
 
+The specific API endpoints are:
+- `https://query-simulation-engine.onrender.com/api/query`
+- `https://query-simulation-engine.onrender.com/api/explain`
+- `https://query-simulation-engine.onrender.com/api/validate`
+
+**Note:** This is an API-only service with no frontend interface. It can only be accessed through API requests (POST) using tools like Postman or curl, not directly through a browser.
+
 ### Deployment Notes
-- **Note:** The first request after a period of inactivity may take 10-30 seconds to respond as the server needs to restart. Subsequent requests will be processed at normal speed.
+- The first request after a period of inactivity may take 10-30 seconds to respond as the server needs to restart. Subsequent requests will be processed at normal speed.
 
 ## Postman Collection
 
@@ -173,8 +180,7 @@ Returns products with a price less than 100.
 
 ```
 show products with price equal to 800
-```
-Returns products with a price equal to 800.
+```Returns products with a price equal to 800.
 
 ### Category Filters
 
@@ -235,7 +241,7 @@ Fields: id, user_id, product_id, quantity, order_date
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/query-simulation-engine.git
+   git clone https://github.com/AntimonyBullets/Query-Simulation-Engine.git
    cd query-simulation-engine
    ```
 
@@ -253,11 +259,7 @@ Fields: id, user_id, product_id, quantity, order_date
    ```bash
    npm start
    ```
-
-## License
-
-[MIT](LICENSE)
-
+   
 ---
 
 Query Simulation Engine: A natural language to structured query translator. 
