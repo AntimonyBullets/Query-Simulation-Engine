@@ -69,7 +69,7 @@ Processes a natural language query and returns matching data from the mock datab
 **Request Body:**
 ```json
 {
-  "query": "your natural language query here"
+  "query": "find products with price less than 600"
 }
 ```
 
@@ -83,8 +83,8 @@ x-api-key: genai-analytics-api-key
 {
   "success": true,
   "query": {
-    "original": "your natural language query here",
-    "translated": "SELECT * FROM users"
+    "original": "find products with price less than 600",
+    "translated": "SELECT * FROM products WHERE price < 600"
   },
   "result": [
     // Array of matching records from the database
@@ -99,7 +99,7 @@ Analyzes a natural language query and provides an explanation of how it would be
 **Request Body:**
 ```json
 {
-  "query": "your natural language query here"
+  "query": "show all users"
 }
 ```
 
@@ -113,7 +113,7 @@ x-api-key: genai-analytics-api-key
 {
   "success": true,
   "query": {
-    "original": "your natural language query here",
+    "original": "show all users",
     "translated": "SELECT * FROM users"
   },
   "explanation": "This query will retrieve all records from the users table.",
@@ -130,7 +130,7 @@ Checks if a query is feasible to execute without actually running it.
 **Request Body:**
 ```json
 {
-  "query": "your natural language query here"
+  "query": "search xyz from abc"
 }
 ```
 
