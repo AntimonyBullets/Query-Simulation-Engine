@@ -264,5 +264,3 @@ Fields: id, user_id, product_id, quantity, order_date
 ---
 
 Query Simulation Engine: A natural language to structured query translator.
-
-Developed as a project assignment for [GrowthGear](https://growthgear.in/). 
